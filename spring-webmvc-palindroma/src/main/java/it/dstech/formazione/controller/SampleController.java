@@ -11,8 +11,11 @@ public class SampleController {
 
 	@RequestMapping(value  = "/testChiamata")
 	public ModelAndView checkParameter(@RequestParam("testo") String testo, Model model) {
-		System.out.println(testo);
+		//System.out.println(testo);
 		// controllo se frase è palindroma
+		//if(controllopalindroma è vera){
+		// testo==testo+" "+ "la frase è palindroma"
+		//else  testo==testo+" "+ "la frase non è palindroma";
 		
 		return new ModelAndView("risultato","testo",testo);
 	}
