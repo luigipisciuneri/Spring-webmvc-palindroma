@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Mi hai inviato il testo: <b>${testo}</b>
+Il testo inserito : <b>${testo}</b>
 </body>
 </html>

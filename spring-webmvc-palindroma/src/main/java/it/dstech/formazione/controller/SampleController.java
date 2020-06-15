@@ -9,14 +9,27 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SampleController {
 
-	@RequestMapping(value  = "/testChiamata")
+	@RequestMapping(value = "/testChiamata")
 	public ModelAndView checkParameter(@RequestParam("testo") String testo, Model model) {
-		//System.out.println(testo);
-		// controllo se frase è palindroma
-		//if(controllopalindroma è vera){
-		// testo==testo+" "+ "la frase è palindroma"
-		//else  testo==testo+" "+ "la frase non è palindroma";
+      
+		if(palindroma(testo)) {
+    	   testo=testo+" ; "+"  E' Palindroma";
+       }else {
+    	   testo=testo+" ; "+"  Non è Palindroma";
+       }
 		
-		return new ModelAndView("risultato","testo",testo);
+		return new ModelAndView("risultato", "testo", testo);
 	}
+
+	public boolean palindroma(String frase) {
+		String[] array=frase.replace(" ", "").split("");
+		for (int i = 0; i < array.length/2; i++) {
+			int j = array.length - i - 1;
+			if (!array[i].equalsIgnoreCase(array[j])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }
